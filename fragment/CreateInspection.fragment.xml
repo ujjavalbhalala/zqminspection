@@ -1,0 +1,63 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns:l="sap.ui.layout">
+	<Dialog title="Create Inspection Lot" stretch="true" busy="{data>/view/busy}">
+		<customHeader>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Title text="Create Inspection Lot" level="Auto"/>
+				<ToolbarSpacer/>
+				<Button text="Save" visible="false" type="Accept" press=".crt.onPressSaveInspectionLot"/>
+				<Button text="Cancel" visible="false" type="Reject" press=".crt.onBackDialog"/>
+			</Toolbar>
+		</customHeader>
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<form:SimpleForm visible="true" id="idCrtInspForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2">
+					<form:content>
+						<core:Title text="Enter Lot Detail"/>
+						<Label text="Plant"/>
+						<smartField:SmartField id="idCrtPlant" value="{Plant}" width="300px" maxLength="4" change=".crt.getSampleType" class="sapUiTinyMarginEnd"/>
+						<Label text="Batch"/>
+						<smartField:SmartField id="idCrtBatch" value="{Batch}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"  change=".crt.getSampleType"
+						valueHelpRequest=".crt.onBatchvalueHelpRequest"/>						
+						<Label text="Material"/>
+						<smartField:SmartField id="idCrtMaterial" value="{Material}" width="300px" maxLength="18" change=".crt.getSampleType"
+							class="sapUiTinyMarginEnd"/>
+						<Label text="Sample Type"/>
+						<ComboBox id="idCrtInspectionType" items="{data>/SamplTypeList/}" editable="true" enabled="true" visible="true" width="300px"
+							valueState="None" selectionChange=".crt.getInspectionLotChar">
+							<items>
+								<core:Item key="{data>InspectionType}" text="{data>InspectionTypeText}" enabled="true"/>
+							</items>
+						</ComboBox>
+						<Label text="Sample Quantity"/>
+						<smartField:SmartField id="idCrtInspLotQty" value="{InspLotQty}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"/>
+						<Label text="Region"/>
+						<smartField:SmartField id="idCrtRegion" value="{Region}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"/>
+						<core:Title text=""/>
+						<Label text="RPIN"/>
+						<smartField:SmartField id="idCrtRPIN" value="{RPIN}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"/>
+						<Label text="Subdivision"/>
+						<smartField:SmartField id="idCrtSubdivision" value="{Subdivision}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"/>
+						<Label text="Mgmt. Area"/>
+						<smartField:SmartField id="idCrtManagementArea" value="{ManagementArea}" width="300px" maxLength="5" class="sapUiTinyMarginEnd"/>
+						<Label text="Vendor"/>
+						<smartField:SmartField id="idCrtVendor" value="{Vendor}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"/>
+						<Label text="Customer"/>
+						<smartField:SmartField id="idCrtCustomer" value="{Customer}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"/>
+						<Label text="Manufacturer"/>
+						<smartField:SmartField id="idCrtManufacturer" value="{Manufacturer}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"/>
+						<Label text="Sample Date"/>
+						<DatePicker id="idCrtStartdate" value="{ path:'Startdate', type:'sap.ui.model.type.Date'}" mandatory="true" width="300px" maxLength="10"
+							class="sapUiTinyMarginEnd"/>
+					</form:content>
+				</form:SimpleForm>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Save" type="Accept" press=".crt.onPressSaveInspectionLot"/></beginButton>
+		<endButton>
+			<Button text="Cancel" type="Reject" press=".crt.onBackDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

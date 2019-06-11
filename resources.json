@@ -1,0 +1,89 @@
+{
+    "resources": [
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "view/main.view.xml"
+        },
+        {
+            "name": "controller/main.controller.js"
+        },
+        {
+            "name": "controller/BaseController.js"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n_en.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "fragment/SearchInspection.fragment.xml"
+        },
+        {
+            "name": "fragment/UsageDecision.fragment.xml"
+        },
+        {
+            "name": "fragment/Attachments.fragment.xml"
+        },
+        {
+            "name": "fragment/CaptureImage.fragment.xml"
+        },
+        {
+            "name": "fragment/CreateInspection.fragment.xml"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "model/data.json"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": ".project.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "resources.json",
+            "merged": true
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": ".user.project.json"
+        },
+        {
+            "name": "js/CaptureImage.js"
+        },
+        {
+            "name": "js/Utilities.js"
+        },
+        {
+            "name": "js/CreateInspection.js"
+        },
+        {
+            "name": "js/SearchInspection.js"
+        },
+        {
+            "name": "js/dynControl.js"
+        },
+        {
+            "name": "js/Attachments.js"
+        }
+    ]
+}

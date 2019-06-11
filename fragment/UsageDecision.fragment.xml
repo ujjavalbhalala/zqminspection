@@ -1,0 +1,62 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield">
+	<IconTabFilter id="idUDTabFilter" key="UD" icon="sap-icon://decision" iconColor="Default" text="UD" count="" design="Vertical"
+		showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+		<content>
+			<ScrollContainer height="95%" width="100%" horizontal="false" vertical="true">
+				<content>
+					<Toolbar class="sapUiSmallMarginBegin">
+						<Title text="UD For {data>/Lot/InspLotNo} - {data>/Lot/Material} - {data>/Lot/Batch} - {data>/Lot/Customer} - {data>/Lot/RPIN}" level="Auto"/>
+						<ToolbarSpacer/>
+						<Button id="idSaveUD" type="Accept" text="Save" press="saveUDTabData"/>
+					</Toolbar>
+					<l:ResponsiveFlowLayout visible="true">
+						<l:VerticalLayout class="sapUiContentPadding" visible="true">
+							<l:HorizontalLayout>
+								<Label text="UD Code" class="sapUiSmallMargin"/>
+								<ComboBox id="idUDCodeList" items="{data>/UDCodes/}" editable="true" enabled="true" visible="true" width="300px" valueState="None"
+									selectedKey="{data>/Lot/UDCode}" class="sapUiSmallMarginEnd">
+									<items>
+										<core:Item key="{data>UDCode}" text="{data>Description}" enabled="true"/>
+									</items>
+								</ComboBox>
+							</l:HorizontalLayout>
+							<l:HorizontalLayout>
+								<Label text="Comment" class="sapUiSmallMargin"/>
+								<TextArea id="idCommentText" placeholder="Enter Comment" value="{data>/Lot/UDComment}" growing="true" growingMaxLines="3" maxLength="80"
+									class="sapUiSmallMarginEnd" width="200%"/>
+							</l:HorizontalLayout>
+						</l:VerticalLayout>
+					</l:ResponsiveFlowLayout>
+					<Table id="table" items="{data>/UDResults/}" width="auto" mode="SingleSelectMaster" fixedLayout="false" growing="false"
+						growingScrollToLoad="false" class="sapUiSmallMarginBegin">
+						<columns>
+							<Column mergeDuplicates="true">
+								<Text text="Operation" class="default"/>
+							</Column>
+							<Column mergeDuplicates="true">
+								<Text text="Characteristic" class="default"/>
+							</Column>
+							<Column>
+								<Text text="Result" class="default"/>
+							</Column>
+							<Column>
+								<Text text="Op.Avg." class="default"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Top">
+								<cells>
+									<Text text="{data>Description}" required="false" textAlign="End" class="sapUiTinyMarginEnd"/>
+									<Text text="{data>InspCharName}" required="false" textAlign="End" class="sapUiTinyMarginEnd"/>
+									<Text text="{data>MeasuredValue}" required="false" textAlign="End" class="sapUiTinyMarginEnd"/>
+									<Text text="{data>grossAvg}" required="false" textAlign="End" class="sapUiTinyMarginEnd"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</ScrollContainer>
+		</content>
+	</IconTabFilter>
+</core:FragmentDefinition>

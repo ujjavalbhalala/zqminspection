@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout" xmlns:cam="zcustomlibrary.camera">
+	<Dialog title="Camera" stretch="true">
+		<customHeader/>
+		<content>
+			<Carousel id="idCaptureImageCarousel" class="sapUiContentPadding" loop="true">
+				<pages>
+					<ScrollContainer height="100%" width="100%" horizontal="false" vertical="false">
+						<Toolbar>
+							<Label text="Operation"/>
+							<Select id="idCapImgOprSel" enabled="false" forceSelection="false" items="{data>/OperationSelcList}" change=".capimg.bindCharSelectList">
+								<core:Item key="{data>OperationNo}" text="{data>Description}"/>
+							</Select>
+							<Label text="Characteristic" class="sapUiSmallMargin"/>
+							<Select id="idCapImgCharSel" forceSelection="false" items="{data>/CharSelcList}">
+								<core:Item key="{data>InspChar}" text="{data>InspCharName}"/>
+							</Select>
+							<ToolbarSpacer/>
+						</Toolbar>
+						<cam:Camera id="idCamera" snapshot=".capimg.onSnapshot" singleShotMode="false"/>
+					</ScrollContainer>
+					<ScrollContainer height="100%" width="100%" horizontal="false" vertical="false">
+						<Toolbar>
+							<ToolbarSpacer/>
+							<Input id="idFileNameInput" placeholder="Enter File name (optional)" maxLength="50"/>
+							<Button text="Upload" type="Accept" press=".capimg.onPressUploadImage" class="sapUiTinyMarginBegin"/>
+						</Toolbar>
+						<Image id="idCameraImage" densityAware="false" alt="No Image" visible="false" class="centerImage"/>
+					</ScrollContainer>
+				</pages>
+			</Carousel>
+		</content>
+		<buttons>
+			<Button text="Cancel" type="Reject" press=".capimg.closeDialog"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
