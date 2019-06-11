@@ -1,0 +1,126 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:smartField="sap.ui.comp.smartfield">
+	<Dialog title="Search Inspection Lot" stretch="true" busy="{data>/view/busy}">
+		<customHeader>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Title text="Search Inspection Lot" level="Auto"/>
+				<ToolbarSpacer/>
+				<Button text="Back" visible="false" type="Reject" press=".srch.onBackDialog"/>
+			</Toolbar>
+		</customHeader>
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<Panel id="idSrchParam" expandable="true" expanded="true" headerText="Parameters">
+					<content>
+						<form:SimpleForm visible="true" id="idSearchInspForm" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2">
+							<form:content>
+								<core:Title text=""/>
+								<Label text="Sample Type"/>
+								<ComboBox id="idSrchInspectionType" items="{data>/SamplTypeList/}" editable="true" enabled="true" visible="true" width="300px"
+									valueState="None" loadItems=".srch.getSampleType">
+									<items>
+										<core:Item key="{data>InspectionType}" text="{data>InspectionTypeText}" enabled="true"/>
+									</items>
+								</ComboBox>
+								<Label text="Inspection Lot"/>
+								<smartField:SmartField id="idSrchInspectionLot" value="{InspLotNo}" width="300px" maxLength="12" class="sapUiTinyMarginEnd"/>
+								<Label text="Plant"/>
+								<smartField:SmartField id="idSrchPlant" value="{Plant}" width="300px" maxLength="4" class="sapUiTinyMarginEnd"/>
+								<Label text="Material"/>
+								<smartField:SmartField id="idSrchMaterial" value="{Material}" width="300px" maxLength="18" class="sapUiTinyMarginEnd"/>
+								<Label text="Batch"/>
+								<smartField:SmartField id="idSrchBatch" value="{Batch}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"/>
+								<Label text="Variety"/>
+								<smartField:SmartField id="idSrchVariety" value="{Variety}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"/>
+								<Label text="Delivery"/>
+								<smartField:SmartField id="idSrchDelivery" value="{Delivery}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"/>
+								<core:Title text=""/>
+								<Label text="Vendor"/>
+								<smartField:SmartField id="idSrchVendor" value="{Vendor}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"/>
+								<Label text="Customer"/>
+								<smartField:SmartField id="idSrchCustomer" value="{Customer}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"/>
+								<Label text="RPIN(Manufacturer)"/>
+								<smartField:SmartField id="idSrchManufacturer" value="{Manufacturer}" width="300px" maxLength="10" class="sapUiTinyMarginEnd"/>
+								<Label text="Created on"/>
+								<DateRangeSelection id="idSrchCreatedOn" width="300px" displayFormat="dd.MM.yyyy"/>
+								<Label text="UD"/>
+								<ComboBox id="idUDSelection" items="{data>/UDSelection/}" editable="true" enabled="true" visible="true" width="300px" selectedKey="-"
+									valueState="None">
+									<items>
+										<core:Item key="{data>Key}" text="{data>Text}" enabled="true"/>
+									</items>
+								</ComboBox>
+								<Label text=""/>
+								<Button text="Find" width="150px" type="Accept" press=".srch.onSearchInspectionLot"/>
+							</form:content>
+						</form:SimpleForm>
+					</content>
+				</Panel>
+				<Panel id="idSrchResult" expandable="true" expanded="false" headerText="Results">
+					<content>
+						<Table id="idSearchInspTab" items="{data>/SearchItems/}" width="auto" mode="SingleSelectMaster" itemPress=".srch.onSearchItemPress"
+							class="sapUiResponsiveMargin" fixedLayout="false" growing="false" growingScrollToLoad="false" includeItemInSelection="true">
+							<columns>
+								<Column>
+									<Text text="Insp Lot"/>
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true">
+									<Text text="Insp. Type"/>
+								</Column>
+								<Column>
+									<Text text="Plant"/>
+								</Column>
+								<Column>
+									<Text text="Material"/>
+								</Column>
+								<Column>
+									<Text text="Batch"/>
+								</Column>
+								<Column>
+									<Text text="Insp.Qty"/>
+								</Column>
+								<Column>
+									<Text text="RPIN"/>
+								</Column>
+								<Column>
+									<Text text="Customer"/>
+								</Column>
+								<Column>
+									<Text text="UD"/>
+								</Column>
+								<Column>
+									<Text text="Delivery"/>
+								</Column>
+								<Column minScreenWidth="Desktop" demandPopin="true">
+									<Text text="Sample Date"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Active" vAlign="Top">
+									<cells>
+										<Text text="{data>InspLotNo}" required="false" textAlign="End"/>
+										<Text text="{ path:'data>InspectionType', formatter: '.util.getInspectionType' }" required="false"/>
+										<Text text="{data>Plant}" required="false" textAlign="End"/>
+										<Text text="{ path : 'data>Material', type : 'sap.ui.model.odata.type.String', constraints: { isDigitSequence : true } }" required="false"
+											textAlign="End"/>
+										<Text text="{data>Batch}" required="false" textAlign="End"/>
+										<Text text="{data>InspLotQty}" required="false" textAlign="End"/>
+										<Text text="{data>RPIN}" required="false" textAlign="End"/>
+										<Text text="{data>Customer}" required="false" textAlign="End"/>
+										<Text text="{data>UDComment}" required="false" textAlign="End"/>
+										<Text text="{data>Delivery}" required="false" textAlign="End"/>
+										<Text text="{ path: 'data>Startdate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy' } }"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Panel>
+			</VBox>
+		</content>
+		<buttons><Button text="Back" type="Reject" press=".srch.onBackDialog"/></buttons>
+		<beginButton></beginButton>
+		<endButton></endButton>
+	</Dialog>
+</core:FragmentDefinition>

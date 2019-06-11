@@ -1,0 +1,46 @@
+{
+  "run": [
+    {
+      "filePath": "/index.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [],
+      "hashParameter": "",
+      "backendSystem": [],
+      "urlParametersNotNeeded": false,
+      "_metadata": {
+        "id": 812957,
+        "runnerId": "webapprunner",
+        "displayName": "Run index.html",
+        "lastRunTimeStamp": 1559168816977
+      }
+    },
+    {
+      "filePath": "/Component.js",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [
+        {
+          "paramName": "sap-theme",
+          "paramValue": "sap_bluecrystal"
+        }
+      ],
+      "hashParameter": "",
+      "backendSystem": [],
+      "_metadata": {
+        "id": 186352,
+        "runnerId": "fiorirunner",
+        "displayName": "Run Component.js",
+        "lastRunTimeStamp": 1557819853223
+      }
+    }
+  ]
+}

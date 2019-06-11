@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield">
+	<IconTabFilter id="idAttachmentTabFilter" key="Attachment" icon="sap-icon://attachment" iconColor="Default" text="Attachment" count=""
+		design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+		<content>
+			<OverflowToolbar>
+				<Title text="Inspection Lot: {data>/Lot/InspLotNo}" level="H2"/>
+				<ToolbarSpacer/>
+				<Button id="idDeleteAttachmentBtn" icon="sap-icon://delete" tooltip="Delete" type="Transparent" press=".attch.onDeleteAttachment"/>
+			</OverflowToolbar>
+			<Toolbar class="sapUiSmallMarginBegin" visible="false">
+				<Title id="idAttachmentListTitle" visible="false" text="" level="H2"/>
+			</Toolbar>
+			<ScrollContainer height="95%" width="100%" horizontal="false" vertical="true">
+				<content>
+					<Table id="idAttachmentList" items="{data>/AttachmentList/}" width="auto" mode="SingleSelectMaster" fixedLayout="false" growing="false"
+						growingScrollToLoad="false" class="sapUiSmallMarginBegin">
+						<headerToolbar></headerToolbar>
+						<columns>
+							<Column>
+								<Text text="Type" class="default"/>
+							</Column>
+							<Column>
+								<Text text="File Name" class="default"/>
+							</Column>
+							<Column >
+								<Text text="Date / Time" class="default"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Top">
+								<cells>
+									<Text text="{data>IdText}"/>
+									<Link text="{data>FileNameText}" press=".attch.onPressImageLink" required="false" textAlign="End" class="sapUiTinyMarginEnd"/>
+									<Text text="{ path: 'data>DateTime', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy HH:mm:ss' } }"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</ScrollContainer>
+		</content>
+	</IconTabFilter>
+</core:FragmentDefinition>

@@ -1,0 +1,44 @@
+.cursor {}
+
+.dynTable table {
+    width: auto !important;
+}
+
+.dynTable td {
+    padding: unset !important;
+}
+.boldText{
+	font-weight: bold !important;
+}
+.itemFound {
+    background-color: #008a3b7a !important;
+}
+
+.footerQty {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem !important;
+}
+
+.hunumber {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem !important;
+}
+
+div[id*='idSearchInspForm'] h5 {
+    display: none;
+}
+
+div[id*='idCrtInspForm'] h5 {
+    display: none;
+}
+
+div[id*='idUDForm'] h5 {
+    display: none;
+}
+
+.centerImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}

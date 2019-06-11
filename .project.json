@@ -1,0 +1,30 @@
+{
+  "mockpreview": {
+    "mockUri": "/sap/opu/odata/sap/Z_TEST_01_SRV",
+    "metadataFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  },
+  "deploy": {
+    "destination": "SGD700",
+    "name": "ZQMINSPECTION"
+  },
+  "generation": [
+    {
+      "templateId": "servicecatalog.connectivityComponent",
+      "templateVersion": "0.0.0",
+      "dateTimeStamp": "Fri, 03 May 2019 03:33:43 GMT"
+    }
+  ],
+  "projectType": [
+    "sap.watt.uitools.ide.fiori",
+    "com.watt.common.builder.sapui5clientbuild"
+  ],
+  "build": {
+    "targetFolder": "dist",
+    "sourceFolder": "",
+    "buildRequired": true,
+    "lastBuildDateTime": "Wed, 29 May 2019 23:24:59 GMT"
+  }
+}

@@ -1,0 +1,154 @@
+{
+    "_version": "1.5.0",
+    "sap.app": {
+        "id": "zqminspection",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "sourceTemplate": {
+            "id": "servicecatalog.connectivityComponent",
+            "version": "0.0.0"
+        },
+        "dataSources": {
+            "main": {
+                "uri": "/sap/opu/odata/sap/Z_QM_INSPECTION_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_belize",
+            "sap_bluecrystal"
+        ]
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "zqminspection.view.main",
+            "type": "XML"
+        },
+        "resourceRoots": {
+            "zcustomlibrary.camera": "../../../../sap/zcustomlibrary/camera/",
+            "zcustomlibrary.img": "../../../../sap/zcustomlibrary/img/"
+        },
+        "dependencies": {
+            "minUI5Version": "1.30.0",
+            "libs": {
+                "sap.collaboration": {},
+                "sap.m": {},
+                "sap.ndc": {
+                    "minVersion": ""
+                },
+                "sap.ui.comp": {},
+                "sap.ui.core": {},
+                "sap.ui.layout": {},
+                "sap.ushell": {},
+                "sap.uxap": {},
+                "zcustomlibrary.camera": {},
+                "zcustomlibrary.img": {}
+            },
+            "components": {
+                "zcustomlibrary.camera": {
+                    "lazy": true
+                },
+                "zcustomlibrary.img": {
+                    "lazy": true
+                }
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "zqminspection.i18n.i18n"
+                }
+            },
+            "data": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "model/data.json",
+                "preload": false
+            },
+            "": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "defaultOperationMode": "Server",
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Request"
+                },
+                "dataSource": "main",
+                "preload": true
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "viewType": "XML",
+                "viewPath": "zqminspection.view",
+                "controlId": "app",
+                "controlAggregation": "",
+                "bypassed": {
+                    "target": []
+                }
+            },
+            "routes": [
+                {
+                    "name": "main",
+                    "pattern": "",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "main"
+                    ]
+                }
+            ],
+            "targets": {
+                "main": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "main",
+                    "viewId": "main",
+                    "viewLevel": 1
+                }
+            }
+        }
+    },
+    "sap.platform.abap": {
+        "uri": "/sap/bc/ui5_ui5/sap/zqminspection",
+        "_version": "1.1.0"
+    }
+}

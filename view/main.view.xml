@@ -1,0 +1,147 @@
+<mvc:View height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" displayBlock="true"
+	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" controllerName="zqminspection.controller.main">
+	<Page title="{i18n>title}" class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack" busy="{data>/view/busy}">
+		<headerContent/>
+		<subHeader/>
+		<content height="100%">
+			<IconTabBar id="idTabBar" expandable="false" expanded="true" applyContentPadding="false" backgroundDesign="Solid" upperCase="false"
+				visible="true" select="filterElements" stretchContentHeight="true" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter icon="sap-icon://hint" key="Header" iconColor="Default" text="Header" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content id="first">
+							<form:Form id="idHeaderForm" width="100%" editable="true" visible="{ path: 'data>/Lot/InspLotNo', formatter: '.util.getHeaderFormVisibility' }">
+								<form:title>
+									<core:Title text="Inspection Lot: {data>InspLotNo}" level="Auto"/>
+								</form:title>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Sample Type" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox items="{data>/SamplTypeList/}" editable="false" enabled="true" visible="true" width="300px" valueState="None"
+														selectedKey="{data>InspectionType}">
+														<items>
+															<core:Item key="{data>InspectionType}" text="{data>InspectionTypeText}" enabled="true"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Material" design="Standard" width="80%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input editable="false" value="{data>Material}"/></form:fields>
+											</form:FormElement>
+											<form:FormElement visible="{ path: 'data>UX_InspLotQty', formatter: '.util.getHeaderFieldVisibility' }">
+												<form:label>
+													<Label text="Sample Quantity" design="Standard" width="80%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input editable="false" value="{data>InspLotQty}"/></form:fields>
+											</form:FormElement>
+											<form:FormElement visible="{ path: 'data>UX_RPIN', formatter: '.util.getHeaderFieldVisibility' }">
+												<form:label>
+													<Label text="RPIN" design="Standard" width="80%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input editable="false" value="{data>RPIN}"/></form:fields>
+											</form:FormElement>
+											<form:FormElement visible="{ path: 'data>UX_ManagementArea', formatter: '.util.getHeaderFieldVisibility' }">
+												<form:label>
+													<Label text="Mgmt. Area" design="Standard" width="80%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input editable="false" value="{data>ManagementArea}"/></form:fields>
+											</form:FormElement>
+											<form:FormElement visible="{ path: 'data>UX_Manufacturer', formatter: '.util.getHeaderFieldVisibility' }">
+												<form:label>
+													<Label text="Manufacturer" design="Standard" width="80%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input editable="false" value="{data>Manufacturer}"/></form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Plant" design="Standard" width="80%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input editable="false" value="{data>Plant}"/></form:fields>
+											</form:FormElement>
+											<form:FormElement visible="{ path: 'data>UX_Batch', formatter: '.util.getHeaderFieldVisibility' }">
+												<form:label>
+													<Label text="Batch" design="Standard" width="80%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input editable="false" value="{data>Batch}"/></form:fields>
+											</form:FormElement>
+											<form:FormElement visible="{ path: 'data>UX_Region', formatter: '.util.getHeaderFieldVisibility' }">
+												<form:label>
+													<Label text="Region" design="Standard" width="80%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input editable="false" value="{data>Region}"/></form:fields>
+											</form:FormElement>
+											<form:FormElement visible="{ path: 'data>UX_Subdivision', formatter: '.util.getHeaderFieldVisibility' }">
+												<form:label>
+													<Label text="Subdivision" design="Standard" width="80%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input editable="false" value="{data>Subdivision}"/></form:fields>
+											</form:FormElement>
+											<form:FormElement visible="{ path: 'data>UX_Vendor', formatter: '.util.getHeaderFieldVisibility' }">
+												<form:label>
+													<Label text="Vendor" design="Standard" width="80%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input editable="false" value="{data>Vendor}"/></form:fields>
+											</form:FormElement>
+											<form:FormElement visible="{ path: 'data>UX_Customer', formatter: '.util.getHeaderFieldVisibility' }">
+												<form:label>
+													<Label text="Customer" design="Standard" width="80%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input editable="false" value="{data>Customer} - {data>CustomerName}"/></form:fields>
+											</form:FormElement>
+											<form:FormElement visible="{ path: 'data>UX_Delivery', formatter: '.util.getHeaderFieldVisibility' }">
+												<form:label>
+													<Label text="Delivery" design="Standard" width="80%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input editable="false" value="{data>Delivery}"/></form:fields>
+											</form:FormElement>
+										</form:formElements>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="2" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+							<MessageStrip visible="false" text="{ path: 'data>/busy', formatter: '.util.getDeviceTypeMessage' }" showIcon="true" showCloseButton="true"
+								class="sapUiMediumMarginTop"></MessageStrip>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Toolbar>
+				<Button id="idBtnPhoto" icon="sap-icon://camera" press="onClickPhoto"/>
+				<ToolbarSpacer/>
+				<Button id="idBtnCreate" text="Create" type="Accept" press="onPressCreate"/>
+				<Button id="idBtnSearch" text="Search" type="Emphasized" press="onPressSearch"/>
+				<Button text="Back" visible="{data>/LotFound}" type="Reject" press="onPressBackMain"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

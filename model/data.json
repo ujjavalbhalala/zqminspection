@@ -1,0 +1,27 @@
+{
+	"Lot": {},
+	"Ops": {},
+	"Average": {},
+	"SearchItems": [],
+	"UDCodes": [],
+	"UDResults": [],
+	"SamplTypeList": [],
+	"UDSelection": [{
+		"Key": "-",
+		"Text": "All"
+	}, {
+		"Key": "~",
+		"Text": "Without UD"
+	}, {
+		"Key": "X",
+		"Text": "With UD"
+	}],
+	"LotFound": false,
+	"AttachmentList": [],
+	"OperationSelcList":[],
+	"CharSelcList":[],
+	"QualCharCode":[],
+	"view": {
+		"busy": false
+	}
+}
